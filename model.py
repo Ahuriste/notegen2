@@ -7,6 +7,6 @@ def build_and_compile ():
 		tf.keras.layers.Dense(130)
 	])
 
-    # Compile the model
-    model.compile(optimizer='adam', loss='mse')
-    return model
+	 # Compile the model
+	model.compile(optimizer='adam', loss='mse')
+	return model

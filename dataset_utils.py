@@ -6,7 +6,7 @@ def write (filename, inputs, targets):
 
 
     with tf.io.TFRecordWriter(filename) as writer:
-        for i in range(num_samples):
+        for i in range(len(inputs)):
             feature = {
                 'input': tf.train.Feature(float_list=tf.train.FloatList(value=inputs[i].flatten())),
                 'target': tf.train.Feature(float_list=tf.train.FloatList(value=targets[i].flatten()))
@@ -27,3 +27,4 @@ def load (filename):
 
     dataset = tf.data.TFRecordDataset(filename)
     dataset = dataset.map(parse_example)
+    return dataset

@@ -10,10 +10,8 @@ input_shape = (10, 130)
 target_shape = (130,)
 inputs = np.random.rand(num_samples, *input_shape)
 targets = np.random.rand(num_samples, *target_shape)
-du.write("data.tfrecords")
+du.write("data.tfrecords", inputs, targets)
 dataset = du.load("data.tfrecords")
-
-
 dataset = dataset.shuffle(buffer_size=10).batch(2)
 
 
